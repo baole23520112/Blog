@@ -1,11 +1,11 @@
-import newsRouter from "./news.js";
-import siteRouter from "./site.js";
+import newsRouter from './news.js';
+import siteRouter from './site.js';
 // Combine route and function handler
 function route(app) {
-    // Match to /news
-	app.use("/news", newsRouter);
-    // Match to '/'
-	app.use("/", siteRouter);
+	// Match to /news
+	app.use('/news', newsRouter);
+	// Match to '/'
+	app.use('/', siteRouter);
 
 	// If ur URL matches to "/", it'll run callback function
 	// app.get("/", (req, res) => {

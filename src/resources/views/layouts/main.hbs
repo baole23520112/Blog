@@ -1,23 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/app.css">
-</head>
-<body>
-    <div class="app">
-        {{!-- Fixed in every page --}}
-        {{> header}}
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<title>Document</title>
 
-        <div class="container">
-            {{{body}}}
-        </div>
+		<!-- Google Fonts -->
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap'
+			rel='stylesheet'
+		/>
 
-        {{!-- Fixed in every page --}}
-        {{> footer}}
-    </div>
-</body>
+		<script src='https://cdn.tailwindcss.com'></script>
+
+		<!-- AlpineJS -->
+		<script
+			defer
+			src='https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js'
+		></script>
+
+		<style>
+			section { font-family: "Poppins", sans-serif; }
+		</style>
+
+		<link rel='stylesheet' href='/css/app.css' />
+	</head>
+	<body>
+		<div class='app'>
+			{{! Fixed in every page }}
+			{{> header}}
+
+			<div class='container'>
+				{{{body}}}
+			</div>
+
+			{{! Fixed in every page }}
+			{{> footer}}
+		</div>
+	</body>
 </html>

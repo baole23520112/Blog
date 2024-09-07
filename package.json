@@ -25,7 +25,8 @@
   "homepage": "https://github.com/lvb2104/Blog#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.6.1"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

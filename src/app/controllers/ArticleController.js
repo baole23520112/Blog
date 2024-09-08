@@ -2,15 +2,25 @@ import Article from "../models/Article.js";
 
 class ArticleController {
 	// [GET] /articles/:slug
-	async show(req, res, next) {
+	async read(req, res, next) {
 		try {
 			const article = await Article.findOne({ slug: req.params.slug }).lean();
-			res.render('articles/show', {
+			res.render('articles/read', {
 				article
-			})
+			});
 		} catch (error) {
 			next(error);
 		}
+	}
+
+	// [GET] /articles/create
+	create(req, res, next) {
+		res.render('articles/create');
+	}
+
+	// [POST] /articles/store
+	store(req, res, next) {
+		res.json(req.body);
 	}
 }
 

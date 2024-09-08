@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 
 const Article = new Schema(
 	{
-		name: { type: String, maxLength: 255, default: 'modafinil' },
-		description: {
-			type: String,
-			maxLength: 600,
-			default: 'Share knowledge',
-		},
-		image: { type: String, maxLength: 255, default: 'image.png' },
+		title: { type: String, required: true },
+		description: { type: String, required: true },
+		content: { type: String, required: true },
 		author: { type: String },
+		slug: { type: String },
+		image: { type: String },
+		avatar: { type: String },
+		profile: { type: String },
 	},
 	{ timestamps: true }
 );

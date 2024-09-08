@@ -1,7 +1,7 @@
 <!-- Card List Section -->
 <section
 	x-data='{ articles: {{json articles}} }'
-	class='w-screen bg-gray-100 dark:bg-gray-900 py-10 px-12'
+	class='w-screen bg-gray-100 dark:bg-gray-900 py-10 px-12 min-h-screen'
 >
 	<!-- Card Grid -->
 	<div
@@ -28,7 +28,7 @@
 							<a :href="'/articles/' + article.slug">
 								<p
 									class='text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300'
-									x-text='article.name'
+									x-text='article.title'
 								>
 									<!-- Post Title -->
 								</p>
@@ -41,6 +41,7 @@
 							>
 								<!-- Post Description -->
 							</small>
+
 						</figcaption>
 					</figure>
 				</a>

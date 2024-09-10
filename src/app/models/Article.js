@@ -1,17 +1,21 @@
 import mongoose from 'mongoose';
+import slug from 'mongoose-slug-updater';
+
+mongoose.plugin(slug);
 
 const Schema = mongoose.Schema;
 
 const Article = new Schema(
 	{
-		title: { type: String, required: true },
-		description: { type: String, required: true },
+		title: { type: String, maxLength: 125,  required: true },
+		description: { type: String, maxLength: 125 },
 		content: { type: String, required: true },
-		author: { type: String },
+		author: { type: String, required: true },
 		slug: { type: String },
-		image: { type: String },
-		avatar: { type: String },
-		profile: { type: String },
+		image: { type: String, required: true },
+		avatar: { type: String, default: '#'},
+		profile: { type: String, default: '#' },
+		slug: { type: String, slug: 'title', unique: true },
 	},
 	{ timestamps: true }
 );

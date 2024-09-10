@@ -4,7 +4,7 @@
 			<div class='p-6 bg-white border-b border-gray-200'>
 				<h1
 					class='text-6xl font-normal leading-normal mt-0 mb-2 text-red-800 text-center'
-				>Create Article</h1>
+				>Edit Article</h1>
 				<form method='POST' action='/articles/storage'>
 					<div class='mb-4'>
 						<label class='text-xl text-gray-600'>Author
@@ -27,7 +27,7 @@
 							class='border-2 border-gray-300 p-2 w-full'
 							name='title'
 							id='title'
-							value=''
+							value='{{article.title}}'
 							required
 						/>
 					</div>
@@ -40,6 +40,7 @@
 							name='description'
 							id='description'
 							placeholder='(Optional)'
+							value="{{article.description}}"
 						/>
 					</div>
 
@@ -66,7 +67,7 @@
 								class='border-2 border-gray-300 p-2 w-full'
 								name='image'
 								id='image'
-								value=''
+								value='{{article.image}}'
 								required
 							/>
 						</div>
@@ -78,6 +79,7 @@
 								name='avatar'
 								id='avatar'
 								placeholder='(Optional)'
+								value="{{article.avatar}}"
 							/>
 						</div>
 						<div class='mb-4'>
@@ -88,6 +90,7 @@
 								name='profile'
 								id='profile'
 								placeholder='(Optional)'
+								value="{{article.profile}}"
 							/>
 						</div>
 					</div>

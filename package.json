@@ -26,7 +26,9 @@
   "dependencies": {
     "express": "^4.19.2",
     "express-handlebars": "^8.0.1",
-    "mongoose": "^8.6.1"
+    "mongoose": "^8.6.1",
+    "mongoose-slug-generator": "^1.0.4",
+    "mongoose-slug-updater": "^3.3.0"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

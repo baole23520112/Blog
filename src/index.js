@@ -4,7 +4,7 @@ import { engine } from 'express-handlebars';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import route from './routes/index.js';
+import route from './routes/server.js';
 import connectDB from './config/db/index.js';
 import './util/handlebars-helpers.js';
 
@@ -19,12 +19,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Express encounter path in url, it'll check in public folder whether it has any static file
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
+
 app.use(
 	express.urlencoded({
 		extended: true,
 	})
 );
-app.use(express.json());
 
 // HTTP logger
 app.use(morgan('combined'));
@@ -34,6 +36,9 @@ app.engine(
 	'hbs',
 	engine({
 		extname: '.hbs',
+		helpers: {
+			sum: (a, b) => a + b,
+		},
 	})
 );
 app.set('view engine', 'hbs');

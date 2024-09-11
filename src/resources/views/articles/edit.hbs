@@ -5,7 +5,7 @@
 				<h1
 					class='text-6xl font-normal leading-normal mt-0 mb-2 text-red-800 text-center'
 				>Edit Article</h1>
-				<form method='POST' action='/articles/storage'>
+				<form method='POST' action='/articles/{{article._id}}?_method=PUT'>
 					<div class='mb-4'>
 						<label class='text-xl text-gray-600'>Author
 							<span class='text-red-500'>*</span></label>
@@ -14,7 +14,7 @@
 							class='border-2 border-gray-300 p-2 w-full'
 							name='author'
 							id='author'
-							value=''
+							value='{{article.author}}'
 							required
 						/>
 					</div>
@@ -50,9 +50,7 @@
 
 						<!-- Create the editor container -->
 						<div id='editor'>
-							<p>Hello World!</p>
-							<p>Some initial <strong>bold</strong> text</p>
-							<p><br /></p>
+							{{convert article.content}}
 						</div>
 
 					</div>

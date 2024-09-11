@@ -7,6 +7,8 @@ import { dirname } from 'path';
 import route from './routes/server.js';
 import connectDB from './config/db/index.js';
 import './util/handlebars-helpers.js';
+import Handlebars from 'handlebars';
+import methodOverride from 'method-override';
 
 // Connect to db
 connectDB();
@@ -19,14 +21,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Express encounter path in url, it'll check in public folder whether it has any static file
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb'}));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json({ limit: '50mb' }));
 
-app.use(
-	express.urlencoded({
-		extended: true,
-	})
-);
+app.use(methodOverride('_method'))
 
 // HTTP logger
 app.use(morgan('combined'));
@@ -38,6 +36,10 @@ app.engine(
 		extname: '.hbs',
 		helpers: {
 			sum: (a, b) => a + b,
+			convert: (html) => {
+				const template = Handlebars.compile(html);
+				return new Handlebars.SafeString(template());
+			}
 		},
 	})
 );

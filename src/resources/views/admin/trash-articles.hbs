@@ -91,19 +91,17 @@
 							id='actionsDropdown'
 							class='hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600'
 						>
-							{{#if count}}
-								<ul
-									class='py-1 text-sm text-gray-700 dark:text-gray-200'
-									aria-labelledby='actionsDropdownButton'
-								>
-									<li>
-										<a
-											href='/me/trash/articles'
-											class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-										>Trash bin ({{count}})</a>
-									</li>
-								</ul>
-							{{/if}}
+							<ul
+								class='py-1 text-sm text-gray-700 dark:text-gray-200'
+								aria-labelledby='actionsDropdownButton'
+							>
+								<li>
+									<a
+										href='/me/storage/articles'
+										class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
+									>Go back</a>
+								</li>
+							</ul>
 							<div class='py-1'>
 								<a
 									href='#'
@@ -221,7 +219,7 @@
 					</div>
 				</div>
 			</div>
-			<div class='min-h-64 overflow-x-auto'>
+			<div class='overflow-x-auto min-h-64'>
 				<table
 					class='w-full text-sm text-left text-gray-500 dark:text-gray-400'
 				>
@@ -232,7 +230,7 @@
 							<th scope='col' class='px-4 py-3'>#</th>
 							<th scope='col' class='px-4 py-3'>Article name</th>
 							<th scope='col' class='px-4 py-3'>Author</th>
-							<th scope='col' class='px-4 py-3'>Created at</th>
+							<th scope='col' class='px-4 py-3'>Deleted at</th>
 							<th scope='col' class='px-4 py-3'>
 								<span class='sr-only'>Actions</span>
 							</th>
@@ -249,7 +247,7 @@
 								<td class='px-4 py-3'>{{this.author}}</td>
 								<td
 									class='created-at px-4 py-3'
-								>{{this.createdAt}}</td>
+								>{{this.deletedAt}}</td>
 								<td
 									class='px-4 py-3 flex items-center justify-end'
 								>
@@ -281,15 +279,10 @@
 										>
 											<li>
 												<a
-													href='/articles/{{this.slug}}'
-													class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-												>Show</a>
-											</li>
-											<li>
-												<a
-													href='/articles/{{this._id}}/edit'
-													class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-												>Edit</a>
+													data-article-id='{{this._id}}'
+													href='#'
+													class='restore-btn block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
+												>Restore</a>
 											</li>
 										</ul>
 										<div class='py-1'>
@@ -298,7 +291,7 @@
 												href="#"
 												data-article-id='{{this._id}}'
 												class='block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'
-											>Delete</a>
+											>Permanently delete</a>
 										</div>
 									</div>
 								</td>
@@ -312,17 +305,17 @@
 											src="https://res.cloudinary.com/daqsjyrgg/image/upload/v1690257804/jjqw2hfv0t6karxdeq1s.svg"
 											alt="image empty states">
 										</div>
-										<h1 class="text-gray-700 font-medium text-2xl text-center mb-3">Create a Article and get organized!</h1>
+										<h1 class="text-gray-700 font-medium text-2xl text-center mb-3">Empty bin</h1>
 										<p class="text-gray-500 text-center mb-6">Article are the backbones of time entry categorization in your
 											workspace.</p>
 										<div class="flex flex-col justify-center">
-											<a href="/articles/create">
+											<a href="/me/storage/articles">
 												<button class="flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 													stroke="currentColor" class="w-6 h-6  mr-2">
 													<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
 												</svg>
-												Create New Article
+												Go back to storage
 												</button>
 											</a>
 										</div>
@@ -443,7 +436,7 @@
                 <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this article?</h3>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to permanently delete this article?</h3>
                 <button id="confirmDelete" data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                     Yes, I'm sure
                 </button>
@@ -453,13 +446,15 @@
     </div>
 </div>
 
-<!-- Form hidden -->
+<!-- Hidden form -->
 <form method='POST' name="delete-form"></form>
+<form method='POST' name="restore-form"></form>
 
 <script>
     // Use event delegation for delete buttons
     const tableBody = document.querySelector('tbody');
 	const deleteForm = document.forms['delete-form'];
+	const restoreForm = document.forms['restore-form'];
     const confirmDeleteButton = document.getElementById('confirmDelete');
     let currentArticleId = null;
 
@@ -468,12 +463,18 @@
         if (deleteButton) {
             currentArticleId = deleteButton.getAttribute('data-article-id');
         }
+		const restoreBtn = e.target.closest('.restore-btn');
+		if (restoreBtn) {
+			const articleId = restoreBtn.getAttribute('data-article-id');
+			restoreForm.action = `/articles/${articleId}/restore?_method=PATCH`;
+			restoreForm.submit();
+		}
     });
 
     // Handle confirmation in the modal
     confirmDeleteButton.addEventListener('click', () => {
         if (currentArticleId) {
-			deleteForm.action = `/articles/${currentArticleId}?_method=DELETE`;
+			deleteForm.action = `/articles/${currentArticleId}/force?_method=DELETE`;
 			// Reset currentArticleId
             currentArticleId = null;
 			deleteForm.submit();

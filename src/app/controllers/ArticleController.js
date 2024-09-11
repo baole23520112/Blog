@@ -21,12 +21,14 @@ class ArticleController {
 	}
 
 	// [POST] /articles/storage
-	storage(req, res, next) {
-		const article = new Article(req.body);
-		article
-			.save()
-			.then(() => res.redirect('/'))
-			.catch(next);
+	async storage(req, res, next) {
+		try {
+			const article = new Article(req.body);
+			await article.save();
+			res.redirect('/me/storage/articles');
+		} catch (error) {
+			next(error);
+		}
 	}
 
 	// [POST] /articles/:id/edit
@@ -42,17 +44,43 @@ class ArticleController {
 	}
 
 	// [PUT] /articles/:id
-	update(req, res, next) {
-		Article.updateOne({ _id: req.params.id }, req.body)
-			.then(() => res.redirect('/me/storage/articles'))
-			.catch(next);
+	async update(req, res, next) {
+		try {
+			await Article.updateOne({ _id: req.params.id }, req.body);
+			res.redirect('/me/storage/articles');
+		} catch (error) {
+			next(error);
+		}
 	}
 
 	// [DELETE] /articles/:id
-	delete(req, res, next) {
-		Article.deleteOne({ _id: req.params.id })
-			.then(() => res.redirect('/me/storage/articles'))
-			.catch(next);
+	async delete(req, res, next) {
+		try {
+			await Article.delete({ _id: req.params.id });
+			res.redirect('back');
+		} catch (error) {
+			next(error);
+		}
+	}
+
+	// [DELETE] /articles/:id/force
+	async forceDelete(req, res, next) {
+		try {
+			await Article.deleteOne({ _id: req.params.id });
+			res.redirect('back');
+		} catch (error) {
+			next(error);
+		}
+	}
+
+	// [PATCH] /articles/:id/restore
+	async restore(req, res, next) {
+		try {
+			await Article.restore({ _id: req.params.id });
+			res.redirect('back');
+		} catch (error) {
+			next(error);
+		}
 	}
 }
 

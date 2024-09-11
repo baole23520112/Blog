@@ -39,6 +39,10 @@ app.engine(
 			convert: (html) => {
 				const template = Handlebars.compile(html);
 				return new Handlebars.SafeString(template());
+			},
+			addBr: (html) => {
+				const modifiedContent = html.replace(/<\/(div|p|h[1-6]|blockquote|pre|ul|ol|li|dl|dt|dd|table|tr|th|td)>/g, '</$1><br>');
+				return modifiedContent;
 			}
 		},
 	})

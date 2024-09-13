@@ -82,6 +82,22 @@ class ArticleController {
 			next(error);
 		}
 	}
+
+	// [POST] /articles/handle-actions
+	async handleActions(req, res, next) {
+		switch (req.body.action) {
+			case 'delete':
+				try {
+					await Article.delete({ _id: {$in: req.body.articleIds} });
+					res.redirect('back');
+				} catch (error) {
+					next(error);
+				}
+				break;
+			default:
+				break;
+		}
+	}
 }
 
 export default new ArticleController();

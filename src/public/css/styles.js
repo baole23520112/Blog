@@ -30,11 +30,6 @@ const content = document.querySelector('input[name=content]');
 
 document.querySelector('form').onsubmit = () => {
     const editorContent = quill.getSemanticHTML(0, Number.MAX_SAFE_INTEGER);
-    // Add <br> at the end of each HTML block tag
-    // const modifiedContent = editorContent.replace(
-    //     /<\/(div|p|h[1-6]|blockquote|pre|ul|ol|li|dl|dt|dd|table|tr|th|td)>/g,
-    //     '</$1><br>'
-    // );
     // Transfer the content from the editor to the hidden input field
     content.value = editorContent;
 };

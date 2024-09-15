@@ -6,9 +6,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import route from './routes/server.js';
 import connectDB from './config/db/index.js';
-import './util/handlebars-helpers.js';
+import helpers from './util/handlebars-helpers.js';
 import Handlebars from 'handlebars';
 import methodOverride from 'method-override';
+import sortMiddleware from './app/middlewares/sortMiddleware.js';
 
 // Connect to db
 connectDB();
@@ -26,6 +27,9 @@ app.use(express.json({ limit: '50mb' }));
 
 app.use(methodOverride('_method'))
 
+// Custom middlewares
+app.use(sortMiddleware);
+
 // HTTP logger
 app.use(morgan('combined'));
 
@@ -34,17 +38,7 @@ app.engine(
 	'hbs',
 	engine({
 		extname: '.hbs',
-		helpers: {
-			sum: (a, b) => a + b,
-			convert: (html) => {
-				const template = Handlebars.compile(html);
-				return new Handlebars.SafeString(template());
-			},
-			addBr: (html) => {
-				const modifiedContent = html.replace(/<\/(div|p|h[1-6]|blockquote|pre|ul|ol|li|dl|dt|dd|table|tr|th|td)>/g, '</$1><br>');
-				return modifiedContent;
-			}
-		},
+		helpers,
 	})
 );
 app.set('view engine', 'hbs');

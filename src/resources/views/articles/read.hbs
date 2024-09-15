@@ -367,6 +367,9 @@
 </div>
 
 <script>
+	const imgs = document.querySelectorAll('img');
+
+
 	function IsImageOk(img) {
 		if (!img.complete) {
 			return false;
@@ -381,7 +384,6 @@
 
 	// Hidden author avatar
 	document.addEventListener('DOMContentLoaded', function () {
-		const imgs = document.querySelectorAll('img');
 		imgs.forEach((img) => {
 			img.addEventListener('load', function () {
 				if (!IsImageOk(img)) {

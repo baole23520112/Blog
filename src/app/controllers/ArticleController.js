@@ -94,6 +94,22 @@ class ArticleController {
 					next(error);
 				}
 				break;
+			case 'force-delete':
+				try {
+					await Article.deleteMany({ _id: {$in: req.body.articleIds} });
+					res.redirect('back');
+				} catch (error) {
+					next(error);
+				}
+				break;
+			case 'restore':
+				try {
+					await Article.restore({ _id: {$in: req.body.articleIds} });
+					res.redirect('back');
+				} catch (error) {
+					next(error);
+				}
+				break;
 			default:
 				break;
 		}

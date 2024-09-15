@@ -5,7 +5,7 @@ class MeController {
 	async storageArticles(req, res, next) {
 		try {
 			const [articles, count] = await Promise.all([
-				Article.find({}).lean(),
+				Article.find({}).lean().sortable(req),
 				Article.countDocumentsWithDeleted({ deleted: true }),
 			]);
 
@@ -23,7 +23,7 @@ class MeController {
 		try {
 			const articles = await Article.findWithDeleted({
 				deleted: true,
-			}).lean();
+			}).lean().sortable(req);
 			res.render('admin/trash-articles', {
 				articles,
 			});

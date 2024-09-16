@@ -1,4 +1,5 @@
 import Article from '../models/Article.js';
+import dayjs from 'dayjs';
 
 class ArticleController {
 	// [GET] /articles/:slug
@@ -7,6 +8,7 @@ class ArticleController {
 			const article = await Article.findOne({
 				slug: req.params.slug,
 			}).lean();
+			article.createdAtFormatted = dayjs(article.createdAt).format('MMMM D, YYYY');
 			res.render('articles/read', {
 				article,
 			});

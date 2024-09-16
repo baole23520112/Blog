@@ -1,124 +1,122 @@
-<div class='py-7 style="min-height: calc(100vh - 11.5rem);'>
-	<div class='max-w-7xl mx-auto sm:px-6 lg:px-8'>
-		<div class='bg-white overflow-hidden shadow-sm sm:rounded-lg'>
-			<div class='p-6 bg-white border-b border-gray-200'>
-				<h1
-					class='text-6xl font-normal leading-normal mt-0 mb-2 text-red-800 text-center'
-				>Create Article</h1>
-				<form method='POST' action='/articles/storage'>
-					<div class='mb-4'>
-						<label class='text-xl text-gray-600'>Author
-							<span class='text-red-500'>*</span></label>
-						<input
-							type='text'
-							class='border-2 border-gray-300 p-2 w-full'
-							name='author'
-							id='author'
-							value=''
-							required
-						/>
-					</div>
-
-					<div class='mb-4'>
-						<label class='text-xl text-gray-600'>Title
-							<span class='text-red-500'>*</span></label>
-						<input
-							type='text'
-							class='border-2 border-gray-300 p-2 w-full'
-							name='title'
-							id='title'
-							value=''
-							required
-						/>
-					</div>
-
-					<div class='mb-4'>
-						<label class='text-xl text-gray-600'>Description</label>
-						<input
-							type='text'
-							class='border-2 border-gray-300 p-2 w-full'
-							name='description'
-							id='description'
-							placeholder='(Optional)'
-						/>
-					</div>
-
-					<div class='mb-8'>
-						<label class='text-xl text-gray-600'>Content
-							<span class='text-red-500'>*</span></label>
-
-						<!-- Create the editor container -->
-						<div id='editor'>
-							
-						</div>
-
-					</div>
-
-					<div class='flex gap-x-20'>
-						<div class='mb-4'>
-							<label class='text-xl text-gray-600'>Background
-								image link
-								<span class='text-red-500'>*</span></label>
-							<input
-								type='text'
-								class='border-2 border-gray-300 p-2 w-full'
-								name='image'
-								id='image'
-								value=''
-								required
-							/>
-						</div>
-						<div class='mb-4'>
-							<label class='text-xl text-gray-600'>Avatar link</label>
-							<input
-								type='text'
-								class='border-2 border-gray-300 p-2 w-full'
-								name='avatar'
-								id='avatar'
-								placeholder='(Optional)'
-							/>
-						</div>
-						<div class='mb-4'>
-							<label class='text-xl text-gray-600'>Profile link</label>
-							<input
-								type='text'
-								class='border-2 border-gray-300 p-2 w-full'
-								name='profile'
-								id='profile'
-								placeholder='(Optional)'
-							/>
-						</div>
-					</div>
-
-					<!-- Hidden input field to store the content -->
-					<div class='mb-4 hidden'>
-						<label class='text-xl text-gray-600'>Description</label>
-						<input
-							type='text'
-							class='border-2 border-gray-300 p-2 w-full'
-							name='content'
-							id='content'
-							placeholder='(Optional)'
-						/>
-					</div>
-
-					<div class='flex p-1'>
-						<select
-							class='border-2 border-gray-300 border-r p-2'
-							name='action'
-						>
-							<option>Save and Publish</option>
-							<option>Save Draft</option>
-						</select>
-						<button
-							type='submit'
-							role='submit'
-							class='p-3 bg-blue-500 text-white hover:bg-blue-400'
-							required
-						>Submit</button>
-					</div>
-				</form>
-			</div>
+<main class='container mx-auto px-4 py-8'>
+	<h2 class='text-2xl font-bold text-gray-800 mb-6'>Create New Article</h2>
+	<form
+		class='bg-white rounded-lg shadow-md p-6'
+		method='POST'
+		action='/articles/storage'
+	>
+		<div class='mb-4'>
+			<label
+				for='title'
+				class='block text-gray-700 font-bold mb-2'
+			>Title</label>
+			<input
+				type='text'
+				id='title'
+				name='title'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+				required
+			/>
 		</div>
-	</div>
-</div>
+
+		<div class='mb-4'>
+			<label
+				for='author'
+				class='block text-gray-700 font-bold mb-2'
+			>Author</label>
+			<input
+				type='text'
+				id='author'
+				name='author'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+				required
+			/>
+		</div>
+
+		<div class='mb-4'>
+			<label
+				for='description'
+				class='block text-gray-700 font-bold mb-2'
+			>Description</label>
+			<textarea
+				id='description'
+				name='description'
+				rows='3'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+				required
+			></textarea>
+		</div>
+
+		<div class='mb-4'>
+			<label
+				for='background-image'
+				class='block text-gray-700 font-bold mb-2'
+			>Background Image URL</label>
+			<input
+				type='url'
+				id='image'
+				name='image'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+				required
+			/>
+		</div>
+
+		<div class='mb-4'>
+			<label
+				class='block text-gray-700 font-bold mb-2'
+			>Content</label>
+			<div
+				id='editor'
+				rows='10'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+			></div>
+		</div>
+
+		<!-- Hidden input field to store the content -->
+		<div class='mb-4 hidden'>
+			<label class='text-xl text-gray-600'>Description</label>
+			<input
+				type='text'
+				class='border-2 border-gray-300 p-2 w-full'
+				name='content'
+				id='content'
+				placeholder='(Optional)'
+			/>
+		</div>
+
+		<div class='mb-4'>
+			<label
+				for='avatar'
+				class='block text-gray-700 font-bold mb-2'
+			>Avatar URL</label>
+			<input
+				type='url'
+				id='avatar'
+				name='avatar'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+				required
+			/>
+		</div>
+
+		<div class='mb-6'>
+			<label
+				for='profile-link'
+				class='block text-gray-700 font-bold mb-2'
+			>Profile Link</label>
+			<input
+				type='url'
+				id='profile-link'
+				name='profile-link'
+				class='w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+				required
+			/>
+		</div>
+
+		<div class='flex justify-end'>
+			<button
+				type='submit'
+				class='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300'
+			>Create Article</button>
+		</div>
+	</form>
+</main>

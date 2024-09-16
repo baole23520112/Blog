@@ -1,51 +1,36 @@
-<!-- Card List Section -->
-<section
+<main
+	class='px-14 py-8 min-h-screen w-full bg-gray-900'
 	x-data='{ articles: {{json articles}} }'
-	class='w-screen bg-gray-100 dark:bg-gray-900 py-10 px-12 min-h-screen'
 >
-	<!-- Card Grid -->
-	<div
-		class='grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-	>
+	<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 		<template x-for='article in articles' :key='article._id'>
-			<!-- Card Item -->
-			<div
-				class='my-8 rounded shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-300 hover:-translate-y-1'
+			<article
+				class='bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-blue-500'
 			>
-				<!-- Clickable Area -->
-				<a class='cursor-pointer'>
-					<figure>
-						<!-- Image -->
-						<a :href="'/articles/' + article.slug">
-							<img
-								:src="article.image + '?auto=format&fit=crop&w=400&q=50'"
-								class='rounded-t h-72 w-full object-cover'
-							/>
-						</a>
-
-						<figcaption class='p-4'>
-							<!-- Title -->
-							<a :href="'/articles/' + article.slug">
-								<p
-									class='text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300'
-									x-text='article.title'
-								>
-									<!-- Post Title -->
-								</p>
-							</a>
-
-							<!-- Description -->
-							<small
-								class='leading-5 text-gray-500 dark:text-gray-400'
-								x-text='article.description'
-							>
-								<!-- Post Description -->
-							</small>
-
-						</figcaption>
-					</figure>
-				</a>
-			</div>
+				<img
+					:src="article.image + '&auto=format&fit=crop&w=1470&q=80'"
+					alt='Laptop on a wooden desk'
+					class='w-full h-48 object-cover'
+				/>
+				<div class='p-6'>
+					<h2
+						class='text-xl font-semibold text-white mb-2'
+						x-text='article.title'
+					></h2>
+					<p class='text-gray-300 mb-4' x-text='article.description'></p>
+					<div
+						class='flex items-center justify-between text-sm text-gray-400 mb-4'
+					>
+						<span x-text='article.author'></span>
+						<span x-text="article.createdAtFormatted"></span>
+					</div>
+					<a :href="'/articles/' + article.slug">
+						<button
+							class='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300'
+						>Read More</button>
+					</a>
+				</div>
+			</article>
 		</template>
 	</div>
-</section>
+</main>

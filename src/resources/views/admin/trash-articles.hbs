@@ -8,7 +8,7 @@
 	<div class='mt-16 mx-auto max-w-screen-xl px-4 lg:px-12'>
 		<!-- Start coding here -->
 		<div
-			class='border-solid border border-slate-800 bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden'
+			class='border-solid border border-slate-800 bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden'
 		>
 			<div
 				class='flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4'
@@ -25,7 +25,7 @@
 							>
 								<svg
 									aria-hidden='true'
-									class='w-5 h-5 text-gray-500 dark:text-gray-400'
+									class='w-5 h-5 text-gray-400'
 									fill='currentColor'
 									viewbox='0 0 20 20'
 									xmlns='http://www.w3.org/2000/svg'
@@ -40,7 +40,7 @@
 							<input
 								type='text'
 								id='simple-search'
-								class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+								class='bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2'
 								placeholder='Search'
 							/>
 						</div>
@@ -53,7 +53,7 @@
 						<input type="hidden">
 						<button
 							type='button'
-							class='flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'
+							class='flex items-center justify-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none'
 						>
 							<svg
 								fill='currentColor'
@@ -79,7 +79,7 @@
 						<input type="hidden">
 						<button
 							type='button'
-							class='flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'
+							class='flex items-center justify-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none'
 						>
 							<svg
 								fill='currentColor'
@@ -105,7 +105,7 @@
 						<a href='/me/trash/articles'>
 							<button
 								type='button'
-								class='flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'
+								class='flex items-center justify-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none'
 							>
 								Trash bin ({{count}})
 							</button>
@@ -114,7 +114,7 @@
 					<a href='/me/storage/articles'>
 						<button
 							type='button'
-							class='flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'
+							class='flex items-center justify-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 focus:outline-none'
 						>
 							Storage
 						</button>
@@ -123,10 +123,10 @@
 			</div>
 			<div class='min-h-64 overflow-x-auto'>
 				<table
-					class='w-full text-sm text-left text-gray-500 dark:text-gray-400'
+					class='w-full text-sm text-left text-gray-400'
 				>
 					<thead
-						class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'
+						class='text-xs text-gray-400 uppercase bg-gray-700'
 					>
 						<tr class='row-hover'>
 							<th
@@ -137,7 +137,7 @@
 									id='default-checkbox'
 									type='checkbox'
 									value=''
-									class='default-checkbox opacity-0 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+									class='default-checkbox opacity-0 w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2'
 								/>
 							</th>
 							<th scope='col' class='px-4 py-3'>#</th>
@@ -157,20 +157,20 @@
 					</thead>
 					<tbody>
 						{{#each articles}}
-							<tr class='row-hover border-b dark:border-gray-700'>
+							<tr class='row-hover border-b border-gray-700'>
 								<td class='flex justify-center items-center'>
 									<input
 										id='default-checkbox'
 										type='checkbox'
 										value='{{this._id}}'
 										name="articleIds[]"
-										class='checkbox-change-background opacity-0 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+										class='checkbox-change-background opacity-0 w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2'
 									/>
 								</td>
 								<td class='px-4 py-3'>{{sum @index 1}}</td>
 								<td
 									scope='row'
-									class='px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white'
+									class='px-4 py-3 font-medium text-white whitespace-nowrap'
 								><a
 										href='/articles/{{this.slug}}'
 									>{{this.title}}</a></td>
@@ -184,7 +184,7 @@
 									<button
 										id='article-{{this._id}}-dropdown-button'
 										data-dropdown-toggle='article-{{this._id}}-dropdown'
-										class='inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100'
+										class='inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-400 hover:text-gray-100 rounded-lg focus:outline-none'
 										type='button'
 									>
 										<svg
@@ -201,17 +201,17 @@
 									</button>
 									<div
 										id='article-{{this._id}}-dropdown'
-										class='hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600'
+										class='hidden z-10 w-44 bg-gray-700 rounded divide-y divide-gray-600 shadow'
 									>
 										<ul
-											class='py-1 text-sm text-gray-700 dark:text-gray-200'
+											class='py-1 text-sm text-gray-200'
 											aria-labelledby='article-{{this._id}}-dropdown-button'
 										>
 											<li>
 												<a
 													data-article-id='{{this._id}}'
 													href='#'
-													class='restore-btn block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
+													class='restore-btn block py-2 px-4 hover:bg-gray-600 hover:text-white'
 												>Restore</a>
 											</li>
 										</ul>
@@ -220,7 +220,7 @@
 												data-modal-target="popup-modal" data-modal-toggle="popup-modal"
 												href="#"
 												data-article-id='{{this._id}}'
-												class='block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'
+												class='block py-2 px-4 text-sm text-gray-200 hover:bg-gray-600 hover:text-white'
 											>Permanently delete</a>
 										</div>
 									</div>
@@ -286,22 +286,22 @@
 				aria-label='Table navigation'
 			>
 				<span
-					class='text-sm font-normal text-gray-500 dark:text-gray-400'
+					class='text-sm font-normal text-gray-400'
 				>
 					Showing
 					<span
-						class='font-semibold text-gray-900 dark:text-white'
+						class='font-semibold text-white'
 					>1-10</span>
 					of
 					<span
-						class='font-semibold text-gray-900 dark:text-white'
+						class='font-semibold text-white'
 					>1000</span>
 				</span>
 				<ul class='inline-flex items-stretch -space-x-px'>
 					<li>
 						<a
 							href='#'
-							class='flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+							class='flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-400 bg-gray-800 rounded-l-lg border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>
 							<span class='sr-only'>Previous</span>
 							<svg
@@ -322,38 +322,38 @@
 					<li>
 						<a
 							href='#'
-							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>1</a>
 					</li>
 					<li>
 						<a
 							href='#'
-							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>2</a>
 					</li>
 					<li>
 						<a
 							href='#'
 							aria-current='page'
-							class='flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-primary-600 bg-primary-50 border border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white'
+							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>3</a>
 					</li>
 					<li>
 						<a
 							href='#'
-							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>...</a>
 					</li>
 					<li>
 						<a
 							href='#'
-							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+							class='flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>100</a>
 					</li>
 					<li>
 						<a
 							href='#'
-							class='flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+							class='flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-400 bg-gray-800 rounded-r-lg border border-gray-700 hover:bg-gray-700 hover:text-white'
 						>
 							<span class='sr-only'>Next</span>
 							<svg
@@ -384,10 +384,10 @@
 	class='hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full'
 >
 	<div class='relative p-4 w-full max-w-md max-h-full'>
-		<div class='relative bg-white rounded-lg shadow dark:bg-gray-700'>
+		<div class='relative bg-gray-700 rounded-lg shadow'>
 			<button
 				type='button'
-				class='absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white'
+				class='absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center'
 				data-modal-hide='popup-modal'
 			>
 				<svg
@@ -409,7 +409,7 @@
 			</button>
 			<div class='p-4 md:p-5 text-center'>
 				<svg
-					class='mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200'
+					class='mx-auto mb-4 text-gray-200 w-12 h-12'
 					aria-hidden='true'
 					xmlns='http://www.w3.org/2000/svg'
 					fill='none'
@@ -424,20 +424,20 @@
 					/>
 				</svg>
 				<h3
-					class='mb-5 text-lg font-normal text-gray-500 dark:text-gray-400'
+					class='mb-5 text-lg font-normal text-gray-400'
 				>Are you sure you want to permanently delete this article?</h3>
 				<button
 					id='confirmDelete'
 					data-modal-hide='popup-modal'
 					type='button'
-					class='text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center'
+					class='text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center'
 				>
 					Yes, I'm sure
 				</button>
 				<button
 					data-modal-hide='popup-modal'
 					type='button'
-					class='py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700'
+					class='py-2.5 px-5 ms-3 text-sm font-medium text-gray-400 focus:outline-none bg-gray-800 rounded-lg border border-gray-600 hover:bg-gray-700 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-700'
 				>No, cancel</button>
 			</div>
 		</div>

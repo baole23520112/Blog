@@ -50,3 +50,4 @@ mongod
 
 ## Usage
 - Access via URL: [http://localhost:3001/](http://localhost:3001/)
+- Submit solution for [Personal Blog](https://roadmap.sh/projects/personal-blog/solutions)

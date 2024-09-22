@@ -1,5 +1,7 @@
 # Personal Blog
-This project is a personal blog application built with Node.js and Express, utilizing Handlebars for templating and MongoDB for data storage. The application follows the MVC architecture, with controllers, models, and routes to ensure a clean and maintainable codebase.
+- This project is a personal blog application built with Node.js and Express, utilizing Handlebars for templating and MongoDB for data storage. The application follows the MVC architecture, with controllers, models, and routes to ensure a clean and maintainable codebase.
+
+- URL: [https://modafini.me](http://modafini.me)
 
 ## Project Setup
 

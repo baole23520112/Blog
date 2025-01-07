@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.json({ limit: '50mb' }));
 
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 // Custom middlewares
 app.use(sortMiddleware);
@@ -35,11 +35,11 @@ app.use(morgan('combined'));
 
 // Template engine
 app.engine(
-	'hbs',
-	engine({
-		extname: '.hbs',
-		helpers,
-	})
+    'hbs',
+    engine({
+        extname: '.hbs',
+        helpers,
+    })
 );
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
@@ -49,5 +49,5 @@ route(app);
 
 // Set up server
 app.listen(port, () => {
-	console.log(`App listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });

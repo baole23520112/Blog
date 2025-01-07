@@ -1,41 +1,42 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "First Blog",
-  "main": "src/index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect src/index.js",
-    "watch": "node-sass --watch src/resources/scss/ -o src/public/css/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lvb2104/Blog.git"
-  },
-  "keywords": [
-    "blog",
-    "nodejs"
-  ],
-  "author": "lebao",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lvb2104/Blog/issues"
-  },
-  "homepage": "https://github.com/lvb2104/Blog#readme",
-  "dependencies": {
-    "dayjs": "^1.11.13",
-    "express": "^4.19.2",
-    "express-handlebars": "^8.0.1",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.6.1",
-    "mongoose-delete": "^1.0.2",
-    "mongoose-slug-generator": "^1.0.4",
-    "mongoose-slug-updater": "^3.3.0"
-  },
-  "devDependencies": {
-    "morgan": "^1.10.0",
-    "node-sass": "^9.0.0",
-    "nodemon": "^3.1.4"
-  }
+    "name": "blog",
+    "version": "1.0.0",
+    "description": "First Blog",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --inspect src/index.js",
+        "watch": "sass --watch src/resources/scss/ -o src/public/css/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lvb2104/Blog.git"
+    },
+    "keywords": [
+        "blog",
+        "nodejs"
+    ],
+    "author": "lebao",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/lvb2104/Blog/issues"
+    },
+    "homepage": "https://github.com/lvb2104/Blog#readme",
+    "dependencies": {
+        "dayjs": "^1.11.13",
+        "express": "^4.19.2",
+        "express-handlebars": "^8.0.1",
+        "method-override": "^3.0.0",
+        "mongodb": "^6.12.0",
+        "mongoose": "^8.6.1",
+        "mongoose-delete": "^1.0.2",
+        "mongoose-slug-generator": "^1.0.4",
+        "mongoose-slug-updater": "^3.3.0"
+    },
+    "devDependencies": {
+        "morgan": "^1.10.0",
+        "nodemon": "^3.1.4",
+        "sass": "^1.32.0"
+    }
 }
